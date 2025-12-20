@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Software Developer",
+    "company": "ABC Tech",
+    "location": "Noida",
+    "experience": "2-4 years",
+    "salary": "₹5-7 LPA"
+  },
+  {
+    "title": "Accountant",
+    "company": "XYZ Ltd",
+    "location": "Delhi",
+    "experience": "1-3 years",
+    "salary": "₹3-5 LPA"
+  },
+  {
+    "title": "HR Executive",
+    "company": "WorkAtlas",
+    "location": "Gurgaon",
+    "experience": "1-2 years",
+    "salary": "₹3-4 LPA"
+  }
+]
