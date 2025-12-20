@@ -1,9 +1,34 @@
-document.getElementById("fetchBtn").addEventListener("click", () => {
-  fetch("https://dog.ceo/api/breeds/image/random")
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById("dogContainer");
-      container.innerHTML = `<img src="${data.message}" alt="Random Dog">`;
-    })
-    .catch(error => console.error("Error fetching dog image:", error));
+let jobs = [];
+
+fetch('jobs.json')
+  .then(response => response.json())
+  .then(data => {
+    jobs = data;
+    displayJobs(jobs);
+  });
+
+document.getElementById('search').addEventListener('input', (e) => {
+  const term = e.target.value.toLowerCase();
+  const filtered = jobs.filter(job => 
+    job.title.toLowerCase().includes(term) || 
+    job.location.toLowerCase().includes(term)
+  );
+  displayJobs(filtered);
 });
+
+function displayJobs(jobList) {
+  const container = document.getElementById('jobsContainer');
+  container.innerHTML = '';
+  jobList.forEach(job => {
+    const div = document.createElement('div');
+    div.classList.add('job');
+    div.innerHTML = `
+      <h2>${job.title}</h2>
+      <p>Company: ${job.company}</p>
+      <p>Location: ${job.location}</p>
+      <p>Experience: ${job.experience}</p>
+      <p>Salary: ${job.salary}</p>
+    `;
+    container.appendChild(div);
+  });
+}
