@@ -1,17 +1,146 @@
-<!DOCTYPE html>
+Skip to content
+Gurpreetk444
+Workatlas-careers
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Commit 391ac25
+Gurpreetk444
+Gurpreetk444
+authored
+on Dec 20, 2025
+·
+·
+Verified
+Update index.html
+main
+1 parent 
+a2a3402
+ commit 
+391ac25
+1 file changed
+
++5
+-86
+Lines changed: 5 additions & 86 deletions
+File tree
+Filter files…
+index.html
+Search within code
+ 
+‎index.html‎
++5
+-86
+Lines changed: 5 additions & 86 deletions
+Original file line number	Diff line number	Diff line change
+@@ -2,97 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workatlas Careers | Job Portal</title>
   <title>Mini Job Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Job Listings Portal</h1>
 
+<header>
+  <div class="logo">Workatlas Careers</div>
+  <div class="search-bar">
+    <input type="text" id="keyword" placeholder="Job title or keywords">
+    <input type="text" id="location" placeholder="Location">
+    <button onclick="filterJobs()">Search</button>
+  </div>
+</header>
   <input type="text" id="search" placeholder="Search by job title or location">
 
+<main>
+  <section class="jobs-container" id="jobs-container">
+    <!-- Job cards will be inserted here via JS -->
+  </section>
+</main>
+<footer>
+  <p>© 2025 Workatlas Staffing Group</p>
+  <p>Email: hr@workatlasstaffinggroup.com</p>
+</footer>
+<script>
+  // Job data
+  const jobs = [
+    {
+      title: "Customer Support Executive (Voice Process)",
+      company: "Workatlas",
+      location: "Noida Sector 11",
+      experience: "Freshers / 0-2 Years",
+      perks: "Free Cab, Free Lunch",
+      apply: "mailto:hr@workatlasstaffinggroup.com"
+    },
+    {
+      title: "Sales & Marketing Executive",
+      company: "Workatlas",
+      location: "Delhi NCR",
+      experience: "1-5 Years",
+      perks: "Commission + Incentives",
+      apply: "mailto:hr@workatlasstaffinggroup.com"
+    },
+    {
+      title: "International Hiring Recruiter (US/Canada)",
+      company: "Workatlas",
+      location: "Remote",
+      experience: "2-5 Years",
+      perks: "Work from Home",
+      apply: "mailto:hr@workatlasstaffinggroup.com"
+    }
+  ];
+  const container = document.getElementById("jobs-container");
+  function displayJobs(list) {
+    container.innerHTML = "";
+    if(list.length === 0) {
+      container.innerHTML = "<p>No jobs found.</p>";
+      return;
+    }
+    list.forEach(job => {
+      const jobCard = document.createElement("div");
+      jobCard.className = "job-card";
+      jobCard.innerHTML = `
+        <h3>${job.title}</h3>
+        <p><strong>Company:</strong> ${job.company}</p>
+        <p><strong>Location:</strong> ${job.location}</p>
+        <p><strong>Experience:</strong> ${job.experience}</p>
+        <p><strong>Perks:</strong> ${job.perks}</p>
+        <a href="${job.apply}" class="btn">Apply Now</a>
+      `;
+      container.appendChild(jobCard);
+    });
+  }
+  function filterJobs() {
+    const keyword = document.getElementById("keyword").value.toLowerCase();
+    const location = document.getElementById("location").value.toLowerCase();
+    const filtered = jobs.filter(job => 
+      job.title.toLowerCase().includes(keyword) &&
+      job.location.toLowerCase().includes(location)
+    );
+    displayJobs(filtered);
+  }
+  // Initial display
+  displayJobs(jobs);
+</script>
   <div id="jobsContainer"></div>
 
   <script src="script.js"></script>
 </body>
 </html>
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're not receiving notifications from this thread.
+
